@@ -32,7 +32,7 @@ wordpress-database:
 
 get-wordpress:
   cmd.run:
-    - name: 'curl -O http://wordpress.org/latest.tar.gz && tar xvzf latest.tar.gz && /bin/rm latest.tar.gz'
+    - name: 'curl -O -L http://wordpress.org/latest.tar.gz && tar xvzf latest.tar.gz && /bin/rm latest.tar.gz'
     - cwd: /var/www/html/
     - unless: test -d /var/www/html/wordpress
     - require:
