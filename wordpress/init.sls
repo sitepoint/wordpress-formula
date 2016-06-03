@@ -30,7 +30,7 @@ install_{{ id }}:
 # This command tells wp-cli to create our wp-config.php, DB info needs to be the same as above
 configure_{{ id }}:
  cmd.run:
-  - name: '/usr/local/bin/wp core config --dbname="{{ site.get('database') }}" --dbuser="{{ site.get('dbuser') }}" --dbpass="{{ site.get('dbpass') }}" --path="{{ map.docroot }}/{{ id }}"'
+  - name: '/usr/local/bin/wp core config --dbname="{{ site.get('database') }}" --dbuser="{{ site.get('dbuser') }}" --dbpass="{{ site.get('dbpass') }}" --dbhost="{{ site.get('dbhost') }}" --path="{{ map.docroot }}/{{ id }}"'
   - cwd: {{ map.docroot }}/{{ id }}
   - user: {{ map.www_user }}
 
