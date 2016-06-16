@@ -23,3 +23,5 @@ wordpress:
             url: http://siteB.com
             title: 'siteB title'
             email: siteB@email.com
+    lookup:
+        docroot: /var/html           
