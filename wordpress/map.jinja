@@ -1,0 +1,17 @@
+{% set map = salt['grains.filter_by']({
+    'default': {
+        'docroot': '/www/html',
+        'www_group': 'www-data',
+        'www_user': 'www-data',
+    },
+    'Debian': {
+        'docroot': '/www/html',
+        'www_group': 'www-data',
+        'www_user': 'www-data',
+    },
+    'Redhat': {
+        'docroot': '/var/www/html',
+        'www_group': 'apache',
+        'www_user': 'apache',
+    },
+}, merge=salt['pillar.get']('wordpress:lookup')) %}
