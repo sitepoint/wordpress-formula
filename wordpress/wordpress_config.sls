@@ -4,13 +4,13 @@
 {% set database = salt['pillar.get']('wordpress:wp-database') %}
 {% set password = salt['pillar.get']('wordpress:wp-passwords:wordpress') %}
 
-include: 
+include:
   - wordpress
 
 wordpress-config:
   file.managed:
     - name: {{ map.docroot }}/wp-config.php
-    - source: 
+    - source:
       - salt://wordpress/files/wp-config.php.{{ grains['fqdn'] }}
       - salt://wordpress/files/wp-config.php
     - mode: 0644
@@ -18,7 +18,7 @@ wordpress-config:
     - group: {{ map.www_group }}
     - template: jinja
    # TODO - this steps on get-wordpress unless; should require get-wordpress and include init?
-    - require: 
+    - require:
         - cmd: get-wordpress
     - context:
       username: {{ username }}
@@ -28,7 +28,7 @@ wordpress-config:
 wordpress-htaccess:
   file.managed:
     - name: {{ map.docroot }}/.htaccess
-    - source: 
+    - source:
       - salt://wordpress/files/htaccess.{{ grains['fqdn'] }}
       - salt://wordpress/files/htaccess
     - mode: 0644

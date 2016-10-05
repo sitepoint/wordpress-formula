@@ -43,10 +43,10 @@ Pillar customizations:
               password: <your-wordpress-user-password>
               database: <your-wordpress-database-name>
               dbuser: <your-wordpress-db-username>
-              dbpass: <your-wordpress-db-password>       
+              dbpass: <your-wordpress-db-password>
               url: http://example.ie
               title: 'My Blog'
-              email: 'john.doe@acme.com'       
+              email: 'john.doe@acme.com'
 
 Formula Dependencies
 ====================

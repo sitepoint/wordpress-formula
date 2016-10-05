@@ -1,5 +1,5 @@
 <?php
-/** 
+/**
  * This file is managed by Salt.
  *
  * Local changes will be overwritten!

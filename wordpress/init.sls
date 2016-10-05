@@ -25,7 +25,7 @@ configure_{{ id }}:
   - name: '/usr/local/bin/wp core config --dbname="{{ site.get('database') }}" --dbuser="{{ site.get('dbuser') }}" --dbpass="{{ site.get('dbpass') }}" --dbhost="{{ site.get('dbhost') }}" --path="{{ map.docroot }}/{{ id }}"'
   - cwd: {{ map.docroot }}/{{ id }}
   - user: {{ map.www_user }}
-  - unless: test -f {{ map.docroot }}/{{ id }}/wp-config.php  
+  - unless: test -f {{ map.docroot }}/{{ id }}/wp-config.php
 
 # This command tells wp-cli to install wordpress
 install_{{ id }}:

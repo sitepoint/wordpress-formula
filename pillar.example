@@ -24,4 +24,4 @@ wordpress:
             title: 'siteB title'
             email: siteB@email.com
     lookup:
-        docroot: /var/html           
+        docroot: /var/html
