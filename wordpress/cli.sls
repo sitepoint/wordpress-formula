@@ -1,5 +1,8 @@
 {% from "wordpress/map.jinja" import map with context %}
 
+include:
+  - mysql.client
+
 # This downloads and installs WP-Cli
 /usr/local/bin/wp:
   file.managed:
@@ -8,3 +11,5 @@
     - user: {{ map.www_user }}
     - group: {{ map.www_group }}
     - mode: 740
+    - require:
+      - pkg: mysql-client
