@@ -2,6 +2,11 @@
 
 include:
   - wordpress.cli
+{%- if salt['pillar.get']('wordpress:site_dependencies:include') %}
+{%- for include_item in salt['pillar.get']('wordpress:site_dependencies:include') %}
+  - {{ include_item }}
+{%- endfor %}
+{%- endif %}
 
 {% for id, site in salt['pillar.get']('wordpress:sites', {}).items() %}
 {{ map.docroot }}/{{ id }}:
@@ -10,6 +15,12 @@ include:
     - group: {{ map.www_group }}
     - mode: 755
     - makedirs: True
+{%- if salt['pillar.get']('wordpress:site_dependencies:require') %}
+    - require:
+{%- for require_item in salt['pillar.get']('wordpress:site_dependencies:require') %}
+      - {{ require_item }}
+{%- endfor %}
+{%- endif %}
 
 # This command tells wp-cli to download wordpress
 download_wordpress_{{ id }}:
